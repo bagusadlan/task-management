@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { TaskForm } from '@/components/container'
 import { CheckIcon, DeleteOutlineIcon, UndoIcon } from '@/components/icons'
 import { Button, Card, Stack, Text } from '@/components/ui'
-import { TaskFormType, TaskType } from '@/lib/types/tastType'
+import { TaskFormType, TaskType } from '@/lib/types/taskType'
 
 export default function TaskManagement() {
   const [tasks, setTasks] = useState<TaskType[]>(() => {

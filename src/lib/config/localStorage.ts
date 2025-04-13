@@ -1,5 +1,6 @@
 const localStorageKey = {
-  cart: 'cart'
+  cart: 'cart',
+  currentUser: 'currentUser'
 }
 
 export default localStorageKey

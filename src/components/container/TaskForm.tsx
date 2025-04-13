@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 
-import { TaskFormType } from '@/lib/types/tastType'
-import { Button, Card, Input, Label, Textarea } from '@/components/ui'
+import { TaskFormType } from '@/lib/types/taskType'
+import { Button, Card, Form, Input, Label, Textarea } from '@/components/ui'
 import { AddIcon } from '../icons'
 
 const taskDefaultValue = {
@@ -14,20 +14,21 @@ function TaskForm({ onSubmit }: { onSubmit: (task: TaskFormType) => void }) {
 
   function handleInputChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     const { name, value } = e.target
-    setTaskForm({
-      ...taskForm,
+    setTaskForm(prev => ({
+      ...prev,
       [name]: value
-    })
+    }))
   }
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+
     onSubmit(taskForm)
     setTaskForm(taskDefaultValue)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Card className='flex flex-col space-y-2 w-full'>
         <div>
           <Label htmlFor='title' className='text-sm text-accent-foreground mb-1'>
@@ -58,7 +59,7 @@ function TaskForm({ onSubmit }: { onSubmit: (task: TaskFormType) => void }) {
         </div>
         <Button disabled={!(taskForm.title && taskForm.description)} type='submit' text='Add Task' icon={<AddIcon />} />
       </Card>
-    </form>
+    </Form>
   )
 }
 

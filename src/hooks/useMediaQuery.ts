@@ -7,7 +7,7 @@ export const useMediaQuery = () => {
     const updateWidth = () => setWidth(window.innerWidth)
 
     window.addEventListener('resize', updateWidth)
-    updateWidth() // Set width setelah mount
+    updateWidth()
 
     return () => window.removeEventListener('resize', updateWidth)
   }, [])

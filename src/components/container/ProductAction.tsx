@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useCartContext } from '@/context/CartContext'
+import { useCartContext } from '@/contexts/CartContext'
 
 import { Button, QuantityInput, Stack } from '@/components/ui'
 import { AddIcon } from '@/components/icons'

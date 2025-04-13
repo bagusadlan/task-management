@@ -18,7 +18,6 @@ export default function CartProvider({ children }: { children: ReactNode }) {
       setCart(cart)
     }
   }, [])
-console.log({cart});
 
   const resetCart = () => {
     setCart([])

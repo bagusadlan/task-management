@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 import type { ProductType } from '@/lib/types/productType'
 import { ROUTES } from '@/lib/config/routes'
-import { useCartContext } from '@/context/CartContext'
+import { useCartContext } from '@/contexts/CartContext'
 
 import { Button, Card, Image, Stack, Text } from '@/components/ui'
 import type { CardProps } from '@/components/ui/Card'

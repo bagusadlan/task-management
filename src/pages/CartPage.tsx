@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
-import { Button, Card, Image, Checkbox, Grid, Stack, Text, Container, QuantityInput } from '@/components/ui'
+import { Button, Card, Image, Checkbox, Grid, Stack, Text, Container, QuantityInput, Label } from '@/components/ui'
 import { DeleteOutlineIcon } from '@/components/icons'
 
 import { formatPrice } from '@/helper'
 
-import { useCartContext } from '@/context/CartContext'
+import { useCartContext } from '@/contexts/CartContext'
 import { getCartData } from '@/lib/services/productService'
 
 export default function CartPage() {
@@ -124,11 +124,14 @@ export default function CartPage() {
                     <Checkbox
                       checked={selectedProducts.length === cart.length && cart.length > 0}
                       onChange={toggleSelectAll}
+                      id='checkAll'
                     />
-                    <Stack direction='row' spacing={1}>
-                      <span className='text-gray-500 text-sm hidden md:block'>Pilih</span>
-                      <span className='text-gray-500 text-sm md:lowercase'>Semua</span>
-                    </Stack>
+                    <Label htmlFor='checkAll'>
+                      <Stack direction='row' spacing={1}>
+                        <span className='text-gray-500 text-sm hidden md:block'>Pilih</span>
+                        <span className='text-gray-500 text-sm md:lowercase'>Semua</span>
+                      </Stack>
+                    </Label>
                   </Stack>
                   <Stack spacing={0} className='items-end justify-between flex-1 md:flex-row md:items-center md:mt-2'>
                     <div className='text-xs md:text-sm text-gray-500'>Total</div>

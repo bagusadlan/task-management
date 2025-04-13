@@ -1,15 +1,16 @@
-import { Link, LinkProps } from 'react-router-dom'
+import { Link, LinkProps, useNavigate } from 'react-router-dom'
 
 import { twMerge } from 'tailwind-merge'
 import { motion } from 'framer-motion'
 
 import { ROUTES } from '@/lib/config/routes'
 
-import { useAppContext } from '@/context/AppContext'
+import { useAppContext } from '@/contexts/AppContext'
 
 import { Button, Container, Header, Image } from '@/components/ui'
 import { AccountCircleIcon, CloseIcon, MenuIcon } from '@/components/icons'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useAuthContext } from '@/contexts/AuthContext'
 
 const navbarLink: NavbarType[] = [
   {
@@ -27,8 +28,10 @@ const navbarLink: NavbarType[] = [
 ]
 
 export default function Navbar() {
+  const navigate = useNavigate()
   const deviceWidth = useMediaQuery()
   const { isSidebarOpen, setIsSidebarOpen } = useAppContext()
+  const { logout, isAuthenticated } = useAuthContext()
 
   const handleCloseSidebar = () => setIsSidebarOpen(false)
 
@@ -47,6 +50,12 @@ export default function Navbar() {
         ease: 'easeInOut'
       }
     }
+  }
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+    handleCloseSidebar()
   }
 
   return (
@@ -79,12 +88,24 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <Button
-                text='Login'
-                icon={<AccountCircleIcon />}
-                className='rounded-full py-3 px-6 h-auto text-[16px] w-full md:w-auto'
-                asLink={{ to: ROUTES.loginPageRoute, onClick: handleCloseSidebar }}
-              />
+              {!isAuthenticated && (
+                <Button
+                  text='Sign In'
+                  icon={<AccountCircleIcon />}
+                  className='rounded-full py-3 px-6 h-auto text-[16px] w-full md:w-auto'
+                  asLink={{ to: ROUTES.loginPageRoute, onClick: handleCloseSidebar }}
+                />
+              )}
+              {isAuthenticated && (
+                <Button
+                  text='Logout'
+                  icon={<AccountCircleIcon />}
+                  variant='outlined'
+                  color='danger'
+                  className='rounded-full py-3 px-6 h-auto text-[16px] w-full md:w-auto'
+                  onClick={handleLogout}
+                />
+              )}
             </div>
           </nav>
         </motion.div>
