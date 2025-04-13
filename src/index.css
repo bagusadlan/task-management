@@ -1,11 +1,5 @@
 @import 'tailwindcss';
 
-@layer base {
-  .container-wrapper {
-    @apply px-2 md:px-4 lg:px-8 max-w-full lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-[1440px] m-auto;
-  }
-}
-
 @theme {
   --color-background: hsl(0, 0%, 100%);
 
@@ -20,6 +14,15 @@
   --color-card: hsl(0, 0%, 100%);
   --color-card-foreground: hsl(240, 10%, 3.9%);
 
+  --color-success: hsl(142.1, 76.2%, 36.3%);
+  --color-success-foreground: hsl(355.7, 100%, 97.3%);
+
   --color-danger: hsl(0, 84.2%, 60.2%);
   --color-danger-foreground: hsl(0, 0%, 98%);
+
+  --color-warning: hsl(24.6, 95%, 53.1%);
+  --color-warning-foreground: hsl(60, 9.1%, 97.8%);
+
+  --color-caution: hsl(43.3, 96.4%, 56.3%);
+  --color-caution-foreground: hsl(0, 0%, 100%);
 }

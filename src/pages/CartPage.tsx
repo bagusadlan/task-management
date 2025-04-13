@@ -55,7 +55,7 @@ export default function CartPage() {
           className='md:grid-cols-[1fr_minmax(0px,248px)] md:gap-x-4 lg:grid-cols-[1fr_minmax(0px,288px)] lg:gap-x-6 md:items-start'
         >
           <Stack spacing={2}>
-            {!!data?.data &&
+            {!!data?.data && data.data.length > 0 ? (
               data?.data.map((data, index) => {
                 const cartItem = cart.find(item => item.productID === data.productID)
 
@@ -109,7 +109,12 @@ export default function CartPage() {
                     </Stack>
                   </Card>
                 )
-              })}
+              })
+            ) : (
+              <Text variant='error' className='text-center'>
+                Cart is empty!
+              </Text>
+            )}
           </Stack>
           <Card className='fixed z-20 bottom-0 md:sticky md:top-[152px] left-0 w-full lg:w-72 py-2.5 sm:px-6 rounded-none md:rounded-md lg:rounded-xl md:h-auto'>
             <Stack spacing={2}>

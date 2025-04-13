@@ -1,6 +1,6 @@
 import { ProductType } from '@/lib/types/productType'
+import { CartType } from '@/lib/types/cartType'
 import { products } from '@/lib/data/dummy'
-import { CartType } from '../types/cartType'
 
 export const getProductDetailService = (productID: ProductType['productID']) => {
   const response = products.data.find(product => product.productID === productID)

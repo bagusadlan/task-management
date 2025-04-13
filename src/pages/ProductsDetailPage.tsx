@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom'
 
-import { Card, Grid, Stack, Divider, Image, Container, Text } from '@/components/ui'
 import { getProductDetailService } from '@/lib/services/productService'
-import ProductAction from '@/components/container/ProductAction'
+
+import { Card, Grid, Stack, Divider, Image, Container, Text } from '@/components/ui'
+import { ProductAction } from '@/components/container'
+
 import { formatPrice } from '@/helper'
 
 export default function ProductsDetailPage() {
@@ -97,7 +99,7 @@ export default function ProductsDetailPage() {
     </>
   ) : (
     <Text variant='error' className='text-center'>
-      Product tidak ditemukan
+      Product not found!
     </Text>
   )
 }

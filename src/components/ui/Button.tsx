@@ -173,7 +173,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {children ?? (
           <>
             {icon && <span className={loading ? 'opacity-0' : ''}>{icon}</span>}
-            {text && <span className={twMerge(loading && 'opacity-0', icon && 'leading-none mb-0.5')}>{text}</span>}
+            {text && <span className={twMerge(loading && 'opacity-0', icon && 'leading-none')}>{text}</span>}
             {loading && (
               <span className='absolute inset-0 flex items-center justify-center'>
                 {loading && <LoadingIcon />}
