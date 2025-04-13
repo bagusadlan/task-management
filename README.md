@@ -72,6 +72,13 @@ src/
 └── main.tsx             # File entry
 ```
 
+## Route Page
+
+- **/**: Task management (private)
+- **/products**: All product (public)
+- **/products/:productID**: Detail product (public)
+- **/cart**: Keranjang belanja (private)
+
 ### Struktur Atomic Design
 
 Pustaka komponen kami diorganisir menggunakan metodologi Atomic Design:
