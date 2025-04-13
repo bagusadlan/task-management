@@ -122,7 +122,7 @@ export default function RegisterPage() {
         </Stack>
         <div className='text-xs text-center'>
           Already have an account?{' '}
-          <Link to={ROUTES.registerPageRoute} className='text-primary'>
+          <Link to={ROUTES.loginPageRoute} className='text-primary'>
             Sign In
           </Link>
         </div>
